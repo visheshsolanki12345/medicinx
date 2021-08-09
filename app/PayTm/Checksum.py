@@ -122,14 +122,14 @@ def __decode__(to_decode, iv, key):
 
 if __name__ == "__main__":
     params = {
-        'MID': 'SWKkph05465739185211',
+        'MID': 'zgZiaS95597255328985',
         'ORDER_ID': 'order.order_id',
         'TXN_AMOUNT': '1',
         'CUST_ID': 'email',
         'INDUSTRY_TYPE_ID': 'Retail',
         'WEBSITE': 'WEBSTAGING',
         'CHANNEL_ID': 'WEB',
-        'CALLBACK_URL':'http://127.0.0.1:8000/handlepayment/',
+        'CALLBACK_URL':'https://medicinex.herokuapp.com/handlepayment/',
     }
 
     print(verify_checksum(
