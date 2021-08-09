@@ -337,10 +337,12 @@ def payment_done(request):
             totalamount = c.product.discounted_price * c.quantity + 70
             c.delete()
         order_id = order.id
+        for i in order_id:
+            print(i)
 
         param_dict={
             'MID': 'zgZiaS95597255328985',
-            'ORDER_ID': str(order_id),
+            'ORDER_ID': str(i),
             'TXN_AMOUNT': str(totalamount),
             'CUST_ID': cur_user_email,
             'INDUSTRY_TYPE_ID': 'Retail',
