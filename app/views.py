@@ -322,7 +322,6 @@ def checkout(request):
         return render(request, 'app/not_product_found.html')
 
 
-
 @login_required
 def payment_done(request):
     try:
@@ -337,24 +336,24 @@ def payment_done(request):
             totalamount = c.product.discounted_price * c.quantity + 70
             c.delete()
         order_id = order.id
-        for i in order_id:
-            print(i)
 
         param_dict={
             'MID': 'zgZiaS95597255328985',
-            'ORDER_ID': str(i),
+            'ORDER_ID': str(order_id),
             'TXN_AMOUNT': str(totalamount),
             'CUST_ID': cur_user_email,
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
             'CALLBACK_URL':'https://medicinex.herokuapp.com/handlepayment/',
+
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
         return  render(request, 'app/paytm.html', {'param_dict': param_dict})
         # return redirect('orders')
     except:
         return render(request, 'app/house_not_found.html')
+
 
 
 @csrf_exempt
