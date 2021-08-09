@@ -16,6 +16,8 @@ from django.core.mail import EmailMessage
 MERCHANT_KEY = '@fzp_H%SrTa09MJV'
 
 
+
+
 class ProductView(View):
     def get(self,request):
         total_item = 0
@@ -219,6 +221,7 @@ class CustomerRegistrationView(View):
         if form.is_valid():
             messages.success(request, 'Congratulations!! Registered Successfully')
             form.save()
+            return redirect('login')
         return render(request, 'app/customerregistration.html', {'form':form})
         
 
@@ -345,7 +348,6 @@ def payment_done(request):
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
             'CALLBACK_URL':'https://medicinex.herokuapp.com/handlepayment/',
-
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
         return  render(request, 'app/paytm.html', {'param_dict': param_dict})
