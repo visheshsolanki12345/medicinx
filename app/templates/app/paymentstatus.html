@@ -9,6 +9,7 @@
         <h2>Payment status regarding your order Id {{response.ORDERID}}</h2>
         {% if response.RESPCODE == '01' %}
         ORDER SUCCESS
+        <a href="{% url 'orders' %}" class='btn btn-primary shodow px-5 py-2 ms-4'>Check Your Orders Status</a>
         {% else %}
         ORDER FAILURE
         {% endif%}

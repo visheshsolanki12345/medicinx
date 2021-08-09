@@ -345,7 +345,7 @@ def payment_done(request):
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL':'http://127.0.0.1:8000/handlepayment/',
+            'CALLBACK_URL':'https://medicinex.herokuapp.com/handlepayment/',
 
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
@@ -374,7 +374,6 @@ def handlerequest(request):
             order_1 = (response_dict['ORDERID'])
             amount_1 = (response_dict['TXNAMOUNT'])
             tsc_id_1 = (response_dict['TXNID'])
-
             email = EmailMessage('Transaction Fail',f"Order ID   :  {order_1} \nTotal Amount  :  {amount_1} \nTransaction ID  :  {tsc_id_1} ", to=['visheshsolanki12345@gmail.com'])
             email.send()
     return render(request, 'app/paymentstatus.html', {'response': response_dict})
