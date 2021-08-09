@@ -1,4 +1,4 @@
-from django.http.response import HttpResponse, JsonResponse
+from django.http.response import HttpResponse, JsonResponse, StreamingHttpResponse
 from django.shortcuts import redirect, render
 from django.views import View
 from .models import Customer, Product, Cart, OrderPlaced
@@ -335,6 +335,7 @@ def payment_done(request):
             cur_user_email = user.email
             totalamount = c.product.discounted_price * c.quantity + 70
             c.delete()
+        # order_id = StreamingHttpResponse(order.id)
         order_id = order.id
 
         param_dict={

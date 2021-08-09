@@ -123,7 +123,7 @@ def __decode__(to_decode, iv, key):
 if __name__ == "__main__":
     params = {
         'MID': 'SWKkph05465739185211',
-        'ORDER_ID': 'order.order_id',
+        'ORDER_ID': '209',
         'TXN_AMOUNT': '1',
         'CUST_ID': 'email',
         'INDUSTRY_TYPE_ID': 'Retail',
