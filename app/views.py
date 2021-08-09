@@ -17,7 +17,6 @@ MERCHANT_KEY = '@fzp_H%SrTa09MJV'
 
 
 
-
 class ProductView(View):
     def get(self,request):
         total_item = 0
