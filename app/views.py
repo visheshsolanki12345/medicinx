@@ -333,10 +333,10 @@ def payment_done(request):
         for c in cart:
             order = OrderPlaced(user=user, customer=customer, product=c.product, quantity=c.quantity)
             order.save()
-            order_id = order.id
             cur_user_email = user.email
             totalamount = c.product.discounted_price * c.quantity + 70
             c.delete()
+        order_id = order.id
 
         param_dict={
             'MID': 'zgZiaS95597255328985',
@@ -372,9 +372,9 @@ def handlerequest(request):
             print('order was not successful because' + response_dict['RESPMSG'])
             order_1 = (response_dict['ORDERID'])
             amount_1 = (response_dict['TXNAMOUNT'])
-            # tsc_id_1 = (response_dict['TXNID'])
+            tsc_id_1 = (response_dict['TXNID'])
 
-            email = EmailMessage('Transaction Fail',f"Order ID   :  {order_1} \nTotal Amount  :  {amount_1} \nTransaction ID  :   ", to=['visheshsolanki12345@gmail.com'])
+            email = EmailMessage('Transaction Fail',f"Order ID   :  {order_1} \nTotal Amount  :  {amount_1} \nTransaction ID  :  {tsc_id_1} ", to=['visheshsolanki12345@gmail.com'])
             email.send()
     return render(request, 'app/paymentstatus.html', {'response': response_dict})
 
