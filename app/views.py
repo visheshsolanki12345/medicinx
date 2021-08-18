@@ -372,11 +372,11 @@ def handlerequest(request):
             print('order successful')
         else:
             print('order was not successful because' + response_dict['RESPMSG'])
-            # order_1 = (response_dict['ORDERID'])
-            # amount_1 = (response_dict['TXNAMOUNT'])
-            # tsc_id_1 = (response_dict['TXNID'])
-            # email = EmailMessage('Transaction Fail',f"Order ID   :  {order_1} \nTotal Amount  :  {amount_1} \nTransaction ID  :  {tsc_id_1} ", to=['visheshsolanki12345@gmail.com'])
-            # email.send()
+            order_1 = (response_dict['ORDERID'])
+            amount_1 = (response_dict['TXNAMOUNT'])
+            tsc_id_1 = (response_dict['TXNID'])
+            email = EmailMessage('Transaction Fail',f"Order ID   :  {order_1} \nTotal Amount  :  {amount_1} \nTransaction ID  :  {tsc_id_1} ", to=['visheshsolanki12345@gmail.com'])
+            email.send()
     return render(request, 'app/paymentstatus.html', {'response': response_dict})
 
 
