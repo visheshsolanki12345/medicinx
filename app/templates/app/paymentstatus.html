@@ -8,7 +8,6 @@
     {% comment %} {{response}} {% endcomment %}
    <div class="row">
       <div class="col-md-6 mx-auto mt-5">
-      
         {% if response.RESPCODE == '01' %}
          <div class="payment">
             <div class="payment_header">
@@ -20,15 +19,14 @@
                <a href="{% url 'orders' %}">Your Orders</a>
             </div>
         {% else %}
-            <div class="payment">
             <div class="payment_header1">
-               <div class="check"><i class="fa fa-check" aria-hidden="true" style="width:40px ; height: 50px; margin-right: 4px; margin-bottom:-4px;"></i></div>
+               <div class="check"><i class="fa fa-times" aria-hidden="true" style="width:40px ; height: 50px; margin-right: 4px; margin-bottom:-4px;"></i></div>
             </div>
             <div class="content1">
                <h1>Payment Failed !</h1>
                <p>Payment status regarding your order Id {{response.ORDERID}}</p>
                {% comment %} <a href="{% url 'orders' %}" class='btn btn-primary shodow px-5 py-2 ms-4'>Check Your Orders Status</a> {% endcomment %}
-               <a href="{% url 'home' %}">Go To Home</a>
+               <a href="{% url 'home' %} style="text-align:center;">Go To Home</a>
             </div>
          </div>
         {% endif%}
