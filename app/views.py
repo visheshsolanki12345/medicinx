@@ -46,6 +46,7 @@ class ProductDetailView(View):
 def add_to_cart(request):
     user = request.user
     product_id  = request.GET.get('prod_id') 
+    print("**********************************",product_id)
     product = Product.objects.get(id=product_id)
     qs = Cart.objects.filter(product=product)
     exists = qs.exists()
